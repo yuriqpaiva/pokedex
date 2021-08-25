@@ -38,7 +38,7 @@ export default function Content(props: ContentProps) {
             return (
                 <li key={numPokemon}
                     className={`
-                    sm:m-4 m-4 xl:m-8 bg-gray-100 sm:p-4 p -1 rounded-lg border-2
+                    sm:m-4 m-2 xl:m-8 bg-gray-100 sm:p-4 p -1 rounded-lg border-2
                     border-gray-300 shadow-sm hover:shadow-xl 
                     hover:scale-75 cursor-pointer focus:shadow-xl   
                     focus:outline-none hover:border-red-400 
@@ -66,11 +66,11 @@ export default function Content(props: ContentProps) {
         <div className={`
         flex flex-col items-center 
         min-h-screen 
-        mt-5 w-full p-7 rounded-lg shadow-sm 
+        mt-5 w-full sm:px-20 px-10 py-8 rounded-lg shadow-sm 
         bg-white `}>
             <h2>{props.title}</h2>
                 <ul className={`
-                flex flex-wrap sm:justify-between justify-center
+                flex flex-wrap justify-between 
                 text-center sm:text-base text-sm 
                 `}>
                     {listaPokemons(pokemons)}
