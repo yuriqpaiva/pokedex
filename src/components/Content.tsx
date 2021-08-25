@@ -38,7 +38,7 @@ export default function Content(props: ContentProps) {
             return (
                 <li key={numPokemon}
                     className={`
-                    sm:m-4 m-2 xl:m-8 bg-gray-100 sm:p-4 p -1 rounded-lg border-2
+                    sm:m-4 mx-2 my-2 xl:m-8 bg-gray-100 sm:p-4 p -1 rounded-lg border-2
                     border-gray-300 shadow-sm hover:shadow-xl 
                     hover:scale-75 cursor-pointer focus:shadow-xl   
                     focus:outline-none hover:border-red-400 
