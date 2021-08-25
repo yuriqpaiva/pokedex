@@ -52,7 +52,7 @@ export default function Content(props: ContentProps) {
                     <img
                         src={pokemon.url}
                         alt={pokemon.name}
-                        className={`sm:w-40 sm:h-40 w-24 h-24 mb-2`}
+                        className={`sm:w-36 sm:h-36 w-24 h-24 mb-2`}
                     />                    
                     <span className={`sm:text-xl text-gray-700`}>{`${formatedPokemon}`}</span>
                 </li>
