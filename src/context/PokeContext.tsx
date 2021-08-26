@@ -43,7 +43,7 @@ export default function PokemonData(props: PokemonDataProps) {
                         pokemonSpriteUrl
                     )
                 }))
-
+                    
             setTimeout(() => {
                 setLoading(false)
             }, 3000);

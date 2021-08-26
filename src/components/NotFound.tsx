@@ -11,7 +11,7 @@ export default function NotFound() {
             <h2 className={`
                 text-red-700 text-xl font-semibold
             `}>Ops!</h2>
-            <Image
+            <img
                 src={pikachuImg}
                 alt=""
                 className={`
