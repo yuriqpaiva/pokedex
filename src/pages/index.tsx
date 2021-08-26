@@ -16,7 +16,7 @@ export default function Home() {
       title='Pokédex'
       subtitle='Pesquisa avançada de Pokémons'
       />
-      <Content title='Lista de Pokémons'/>
+      <Content/>
     </div>
   )
 }

@@ -1,10 +1,16 @@
 export default class Pokemon {
+    #number: string
     #name: string
     #url: string
 
-    constructor(name: string, url: string) {
+    constructor(id, name: string, url: string) {
+        this.#number = id
         this.#name = name
         this.#url = url
+    }
+
+    get number() {
+        return this.#number
     }
 
     get name() {
