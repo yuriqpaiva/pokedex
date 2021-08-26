@@ -7,11 +7,13 @@ import { converterPara3Casas, converterDe3Casas } from "../functions/conversoes"
 interface PokemonContext {
     pokemons: [any]
     search: (name: string) => void
+    loading: boolean
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
     pokemons: null,
     search: null,
+    loading: null
 })
 
 interface PokemonDataProps {
@@ -22,6 +24,7 @@ export default function PokemonData(props: PokemonDataProps) {
 
     const [pokemons, setPokemons] = useState<any>([])
     const [allPokemons, setAllPokemons] = useState<any>([])
+    const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         async function carregarPokemons() {
@@ -41,6 +44,9 @@ export default function PokemonData(props: PokemonDataProps) {
                     )
                 }))
 
+            setTimeout(() => {
+                setLoading(false)
+            }, 3000);
             setPokemons(pokemonsApiArray)
             setAllPokemons(pokemonsApiArray)
         }
@@ -58,7 +64,7 @@ export default function PokemonData(props: PokemonDataProps) {
 
     return (
         <PokeDataContext.Provider value={{
-            pokemons, search
+            pokemons, search, loading
         }}>
             {props.children}
         </PokeDataContext.Provider>

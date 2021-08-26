@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import NotFound from "./NotFound";
 import { usePokemonData } from "../hook/usePokemonData";
+import LoadingImg from "./LoadingImg";
 
 export default function PokeList() {
 
-    const { pokemons } = usePokemonData()
+    const { pokemons,loading } = usePokemonData()
 
     function listaPokemons(pokemons) {
         return (pokemons.map((pokemon) => {
@@ -46,10 +47,14 @@ export default function PokeList() {
                 flex flex-wrap justify-center 
                 text-center sm:text-base text-sm 
                 `}>
-                {pokemons.length > 0 ? (
+                {pokemons.length > 0 && !loading ? (
                     listaPokemons(pokemons)
                 ) : (
-                    <NotFound />
+                    loading ? (
+                        <LoadingImg />
+                    ) : (
+                        <NotFound />
+                    )
                 )}
             </ul>
         </ul>
