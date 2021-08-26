@@ -4,7 +4,7 @@ export default function LoadingImg() {
         <div>
             <h3 className='text-xl'>Obtendo dados da Pokedéx...</h3>
             <img 
-            src="images/loading.gif" 
+            src="/images/loading.gif" 
             alt="" 
             className={`
                 rounded-xl

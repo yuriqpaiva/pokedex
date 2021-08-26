@@ -23,6 +23,7 @@ export default function Input(props: InputProps) {
                     mb-5 ml-1 
                     sm:text-base text-sm
                     sm:w-60 w-48
+                    hover:shadow-sm
                     outline-none
                     border-gray-300
                     focus:border-red-300

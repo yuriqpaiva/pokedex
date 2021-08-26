@@ -8,8 +8,9 @@ export default function DeveloperMsg() {
                     
                 ml-1
                 text-blue-800 font-semibold 
-                hover:text-blue-500
+                hover:text-blue-500 bottom
                 `}
+                    id='bottom'
                     href="https://github.com/yuriqpaiva"
                     rel='noreferrer'
                     target='_blank'

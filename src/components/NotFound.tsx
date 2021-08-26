@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { pikachuImg } from "../../public/images/pikachuImg";
+import Image from 'next/image'
 
 export default function NotFound() {
     return (
@@ -10,7 +11,7 @@ export default function NotFound() {
             <h2 className={`
                 text-red-700 text-xl font-semibold
             `}>Ops!</h2>
-            <img
+            <Image
                 src={pikachuImg}
                 alt=""
                 className={`
