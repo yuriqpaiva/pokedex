@@ -9,13 +9,13 @@ interface SkipProps {
 
 export default function Skip({ message, direction, scrollFunc}: SkipProps) {
 
-    const handleClick = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
-        direction === 'bottom' ? 
-         window.scroll(0,document.body.scrollHeight)
-        : window.scroll(0, 0);
-    }
+    // const handleClick = (e) => {
+    //     e.stopPropagation()
+    //     e.preventDefault()
+    //     direction === 'bottom' ? 
+    //      window.scroll({left: 0,top: document.body.scrollHeight, behavior: 'smooth'})
+    //     : window.scroll({top: 0,left: 0, behavior: 'smooth'});
+    // }
 
     return (
         <div className={`

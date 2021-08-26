@@ -23,8 +23,12 @@ export default function ScrollData(props: ScrollDataProps) {
     const refBottom = useRef(null)
     const refTop = useRef(null)
 
-    const executeScrollBottom = () => refBottom.current.scrollIntoView() 
-    const executeScrollTop = () => refTop.current.scrollIntoView() 
+    const executeScrollBottom = () => refBottom.current.scrollIntoView({
+        behavior: 'smooth'
+    }) 
+    const executeScrollTop = () => refTop.current.scrollIntoView({
+        behavior: 'smooth'
+    }) 
 
     return (
         <ScrollContext.Provider value={{
