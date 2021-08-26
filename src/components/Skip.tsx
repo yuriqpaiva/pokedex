@@ -1,15 +1,15 @@
 import React from 'react'
+import { useScrollData } from '../hook/useScrollData'
 
 interface SkipProps {
     message: string
     direction: string
+    scrollFunc: () => void
 }
 
-export default function Skip({ message, direction }: SkipProps) {''
+export default function Skip({ message, direction, scrollFunc}: SkipProps) {
 
-    const myRef = React.createRef()
-
-    const handleClick = (e, ref) => {
+    const handleClick = (e) => {
         e.stopPropagation()
         e.preventDefault()
         direction === 'bottom' ? 
@@ -27,8 +27,7 @@ export default function Skip({ message, direction }: SkipProps) {''
                     hover:text-red-400
                     cursor-pointer
                 `}
-                onClick={(e) => handleClick(e, myRef)}
-                
+                onClick={scrollFunc}
                 >
                 {message}
             </a>

@@ -1,11 +1,15 @@
 import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
 import PokemonData from '../context/PokeContext'
+import ScrollData from '../context/scrollContext'
 
 function MyApp({ Component, pageProps }) {
   return (
+
     <PokemonData>
-      <Component {...pageProps} />
+      <ScrollData>
+        <Component {...pageProps} />
+      </ScrollData>
     </PokemonData>
   )
 }

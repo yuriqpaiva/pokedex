@@ -1,6 +1,11 @@
+import { useScrollData } from "../hook/useScrollData"
+
 export default function DeveloperMsg() {
+
+    const {refBottom} = useScrollData()
+
     return (
-        <div className='my-5'>
+        <div className='my-5' ref={refBottom}>
             <p>
                 @2021 - Desenvolvido por
                 <a

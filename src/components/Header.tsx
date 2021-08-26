@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import pokeball from '../../public/images/icone.svg'
+import { useScrollData } from '../hook/useScrollData'
 
 interface HeaderProps {
     title: string
@@ -7,6 +8,7 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
+
     return (
         <div className={`
             flex flex-col justify-center
@@ -15,15 +17,15 @@ export default function Header(props: HeaderProps) {
         `}
             
         >
-            <div className={'flex justify-center'}>
+            <div className={'flex justify-center'} >
                 <Image src={pokeball}
                 alt="Pokeball"
                 width='42'
                 height='42'
                 />
-                <h1 className='mx-3'>{props.title}</h1>
+                <h1 className='mx-3 text-gray-700'>{props.title}</h1>
             </div>
-            <p className={`text-base mt-1`}>{props.subtitle}</p>
+            <p className={`text-base mt-1 text-gray-600`}>{props.subtitle}</p>
         </div>
     )
 }
