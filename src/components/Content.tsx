@@ -1,6 +1,7 @@
 import { usePokemonData } from "../hook/usePokemonData"
 import Input from "./Input"
 import PokeList from "./PokeList"
+import DeveloperMsg from '../components/DeveloperMsg'
 
 export default function Content() {
 
@@ -19,6 +20,7 @@ export default function Content() {
             <hr className={`w-3/4 mb-5 border-gray-300`}/>
             <PokeList />
             <hr className={`w-3/4 mt-5 border-gray-300`}/>
+            <DeveloperMsg />
         </div>
     )
 }
