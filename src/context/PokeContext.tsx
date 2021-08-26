@@ -2,16 +2,16 @@
 import { useEffect, useState } from "react"
 import Pokemon from '../model/Pokemon'
 import { createContext } from "react";
-import converter3casas from "../functions/converter3casas";
+import { converterPara3Casas, converterDe3Casas } from "../functions/conversoes";
 
 interface PokemonContext {
-    pokemons: object
+    pokemons: [any]
     search: (name: string) => void
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
     pokemons: null,
-    search: null
+    search: null,
 })
 
 interface PokemonDataProps {
@@ -20,8 +20,8 @@ interface PokemonDataProps {
 
 export default function PokemonData(props: PokemonDataProps) {
 
-    const [pokemons, setPokemons] = useState([])
-    const [allPokemons, setAllPokemons] = useState([])
+    const [pokemons, setPokemons] = useState<any>([])
+    const [allPokemons, setAllPokemons] = useState<any>([])
 
     useEffect(() => {
         async function carregarPokemons() {
@@ -30,7 +30,7 @@ export default function PokemonData(props: PokemonDataProps) {
 
             const pokemonsApiArray =
                 await Promise.all(pokemonsApi.results.map(async (pokemon, index) => {
-                    const numPokemon = converter3casas(index + 1)
+                    const numPokemon = converterPara3Casas(index + 1)
                     const dataImg = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
                     const pokemonData = await dataImg.json()
                     const pokemonSpriteUrl = await pokemonData.sprites.other['official-artwork'].front_default
@@ -47,14 +47,13 @@ export default function PokemonData(props: PokemonDataProps) {
         carregarPokemons()
     }, [])
 
-    function search(nameInsert: string) {
-        const searchArray = allPokemons.filter((pokemon) => {
-            return pokemon.name.indexOf(nameInsert) > -1
+    function search(insert: string) {
+        const searchArray = allPokemons.filter((pokemon: Pokemon) => {
+            return pokemon.name.indexOf(insert) > -1
         })
         setPokemons(searchArray)
+        console.log(pokemons)
     }
-
-    console.log(pokemons)
 
     return (
         <PokeDataContext.Provider value={{
