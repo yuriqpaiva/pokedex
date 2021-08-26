@@ -47,7 +47,8 @@ export default function PokemonData(props: PokemonDataProps) {
         carregarPokemons()
     }, [])
 
-    function search(insert: string) {
+    function search(insertValue: string) {
+        let insert = insertValue.toLowerCase()
         const searchArray = allPokemons.filter((pokemon: Pokemon) => {
             return pokemon.name.indexOf(insert) > -1
         })

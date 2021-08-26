@@ -8,7 +8,7 @@ export default function Content() {
 
     return (
         <div className={`
-        flex flex-col items-center min-h-screen 
+        flex flex-col items-center 
         mt-3 w-full sm:px-20  py-5 rounded-lg shadow-sm 
         bg-white`}>
             <Input

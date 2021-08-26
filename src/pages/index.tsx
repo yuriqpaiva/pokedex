@@ -5,7 +5,7 @@ import Header from '../components/Header'
 export default function Home() {
   return (
     <div className={`
-    flex flex-col items-center h-full p-3
+    flex flex-col items-center min-h-screen max-h-full p-3
     bg-red-400`}>
       <Head>
         <title>Pokédex</title>
