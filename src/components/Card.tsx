@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
+import Image from 'next/image'
 interface CardProps {
     pokemon: any
     formatedPokemon: string
@@ -21,15 +20,17 @@ export default function Card({ pokemon, formatedPokemon }: CardProps) {
             <span className={`
                     block mb-1 text-red-900 font-semibold
                     `}>{`#${pokemon.number}`}</span>
-            <img
-                src={pokemon.url}
-                alt={pokemon.name}
-                className={`
-                            sm:w-24 sm:h-24  
-                            md:w-36 md:h-36
-                            w-20 h-20 mb-2
-                        `}
-            />
+            <div className={`
+                                sm:w-24 sm:h-24
+                                md:w-36 md:h-36
+                                w-20 h-20 mb-2
+                            `}>
+                <Image
+                    src={pokemon.url}
+                    alt={pokemon.name}
+                    width='144' height='144'
+                />
+            </div>
             <span className={`sm:text-sm md:text-xl text-gray-600`}>{`${formatedPokemon}`}</span>
         </li>
     )
