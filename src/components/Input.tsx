@@ -11,7 +11,7 @@ export default function Input(props: InputProps) {
         `}>
             <label className={`
                 sm:text-base text-sm
-                
+                text-gray-600
             `}>
                 {props.title}
             </label>

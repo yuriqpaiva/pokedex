@@ -8,7 +8,7 @@ export default function LoadingImg() {
             alt="" 
             className={`
                 rounded-xl
-                w-72 h-64
+                w-80 h-64
                 sm:w-96 sm:h-80
             `}
             />

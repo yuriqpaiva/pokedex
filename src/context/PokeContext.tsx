@@ -8,12 +8,16 @@ interface PokemonContext {
     pokemons: [any]
     search: (name: string) => void
     loading: boolean
+    showAll: boolean
+    setShowAll: (value: boolean) => void
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
     pokemons: null,
     search: null,
-    loading: null
+    loading: null,
+    showAll: null,
+    setShowAll: null
 })
 
 interface PokemonDataProps {
@@ -25,6 +29,7 @@ export default function PokemonData(props: PokemonDataProps) {
     const [pokemons, setPokemons] = useState<any>([])
     const [allPokemons, setAllPokemons] = useState<any>([])
     const [loading, setLoading] = useState<boolean>(true)
+    const [showAll , setShowAll] = useState<boolean>(false)
 
     useEffect(() => {
         async function carregarPokemons() {
@@ -43,7 +48,7 @@ export default function PokemonData(props: PokemonDataProps) {
                         pokemonSpriteUrl
                     )
                 }))
-                    
+
             setTimeout(() => {
                 setLoading(false)
             }, 3000);
@@ -64,7 +69,11 @@ export default function PokemonData(props: PokemonDataProps) {
 
     return (
         <PokeDataContext.Provider value={{
-            pokemons, search, loading
+            pokemons, 
+            search, 
+            loading,
+            showAll,
+            setShowAll
         }}>
             {props.children}
         </PokeDataContext.Provider>
