@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <Header 
       title='Pokédex'
-      subtitle='Pesquisa avançada de Pokémons'
+      subtitle='Pesquisa Avançada de Pokémons'
       />
       <Content/>
     </div>
