@@ -28,7 +28,7 @@ export default function Content() {
     return (
         <div className={`
         flex flex-col items-center 
-        mt-3 w-full sm:px-20  py-5 rounded-lg shadow-sm 
+        mt-3 w-full sm:px-20  py-5 rounded-lg shadow-md
         bg-white`}>
             <Skip message='Ir para o final da página'
                 scrollFunc={executeScrollBottom} className={classShortcut}
