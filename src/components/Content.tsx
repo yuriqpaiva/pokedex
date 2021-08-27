@@ -17,7 +17,7 @@ export default function Content() {
     text-green-500 font-semibold
     hover:text-green-400
     cursor-pointer 
-    sm:text-base text-xs 
+    text-base 
     `
         // else
         : `

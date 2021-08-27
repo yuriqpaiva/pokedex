@@ -18,7 +18,7 @@ export default function Skip({ message, className, scrollFunc}: SkipProps) {
 
     return (
         <div className={`
-            mb-8        
+            mb-5        
         `}>
             <a
                 className={`
