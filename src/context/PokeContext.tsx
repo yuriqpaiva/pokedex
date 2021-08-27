@@ -10,6 +10,7 @@ interface PokemonContext {
     loading: boolean
     showAll: boolean
     setShowAll: (value: boolean) => void
+    showShortcut: boolean
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
@@ -17,7 +18,8 @@ export const PokeDataContext = createContext<PokemonContext>({
     search: null,
     loading: null,
     showAll: null,
-    setShowAll: null
+    setShowAll: null,
+    showShortcut: null
 })
 
 interface PokemonDataProps {
@@ -29,7 +31,8 @@ export default function PokemonData(props: PokemonDataProps) {
     const [pokemons, setPokemons] = useState<any>([])
     const [allPokemons, setAllPokemons] = useState<any>([])
     const [loading, setLoading] = useState<boolean>(true)
-    const [showAll , setShowAll] = useState<boolean>(false)
+    const [showAll, setShowAll] = useState<boolean>(true)
+    const [showShortcut, setShowShortcut] = useState<boolean>(false)
 
     useEffect(() => {
         async function carregarPokemons() {
@@ -48,9 +51,9 @@ export default function PokemonData(props: PokemonDataProps) {
                         pokemonSpriteUrl
                     )
                 }))
-
             setTimeout(() => {
                 setLoading(false)
+                setShowAll(false)
             }, 3000);
             setPokemons(pokemonsApiArray)
             setAllPokemons(pokemonsApiArray)
@@ -58,22 +61,35 @@ export default function PokemonData(props: PokemonDataProps) {
         carregarPokemons()
     }, [])
 
+    useEffect(() => {
+        const page = document.querySelector("body")
+        if (page.scrollHeight > 1001 ) {
+            setShowShortcut(true)
+        } else {
+            setShowShortcut(false)
+        }
+    }, [showAll, pokemons])
+
     function search(insertValue: string) {
         let insert = insertValue.toLowerCase()
-        const searchArray = allPokemons.filter((pokemon: Pokemon) => {
+        const searchArray: [] = allPokemons.filter((pokemon: Pokemon) => {
             return pokemon.name.indexOf(insert) > -1
         })
+
+        insert === '' || searchArray.length > 24
+            ? setShowAll(false) : setShowAll(true);
+
         setPokemons(searchArray)
-        console.log(pokemons)
     }
 
     return (
         <PokeDataContext.Provider value={{
-            pokemons, 
-            search, 
+            pokemons,
+            search,
             loading,
             showAll,
-            setShowAll
+            setShowAll,
+            showShortcut
         }}>
             {props.children}
         </PokeDataContext.Provider>

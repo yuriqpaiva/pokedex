@@ -8,7 +8,7 @@ interface CardProps {
 export default function Card({ pokemon, formatedPokemon }: CardProps) {
 
     return (
-        <li key={pokemon.number}
+        <li
             className={`
                     sm:m-2 sm:my-2 my-2 m-2 xl:m-8 bg-gray-100 sm:p-4  rounded-lg border-2
                     border-gray-300 shadow-sm hover:shadow-2xl 

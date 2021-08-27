@@ -12,21 +12,23 @@ export default function PokeList() {
         return (pokemons.map((pokemon, index) => {
             const formatedPokemon =
                 pokemon.name[0].toUpperCase() + pokemon.name.substr(1);
-            if (index < 24 && !showAll) {
+            if (pokemons.length > 24 && !showAll && index < 24) {
                 return (
-                    <Card
-                        pokemon={pokemon}
-                        formatedPokemon={formatedPokemon}
-
-                    />
+                    <div key={pokemon.number}>
+                        <Card
+                            pokemon={pokemon}
+                            formatedPokemon={formatedPokemon}
+                        />
+                    </div>
                 )
             } else if (showAll) {
                 return (
-                    <Card
-                        pokemon={pokemon}
-                        formatedPokemon={formatedPokemon}
-
-                    />
+                    <div key={pokemon.number}>
+                        <Card
+                            pokemon={pokemon}
+                            formatedPokemon={formatedPokemon}
+                        />
+                    </div>
                 )
             }
         }))

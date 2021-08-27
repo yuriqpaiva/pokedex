@@ -20,7 +20,7 @@ export default function NotFound() {
                             mt-5
                         `}
             />
-            <p className='text-red-700 my-5 '>Não conseguimos achar seu Pokémon</p>
+            <p className='text-red-700 mt-5 '>Não conseguimos achar seu Pokémon</p>
         </div>
     )
 }

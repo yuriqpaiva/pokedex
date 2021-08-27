@@ -8,7 +8,7 @@ import Button from "./Button"
 
 export default function Content() {
 
-    const { search, setShowAll, showAll } = usePokemonData()
+    const { search, setShowAll, showAll, showShortcut } = usePokemonData()
     const { executeScrollTop, executeScrollBottom } = useScrollData()
 
     return (
@@ -16,9 +16,12 @@ export default function Content() {
         flex flex-col items-center 
         mt-3 w-full sm:px-20  py-5 rounded-lg shadow-sm 
         bg-white`}>
-            <Skip message='Ir para o final da página' direction='bottom'
+            {showShortcut ? (
+                <Skip message='Ir para o final da página' direction='bottom'
                 scrollFunc={executeScrollBottom}
             />
+            ) : false}
+            
             <Input
                 title='Pesquisar:'
                 placeholder='Insira o nome do Pokémon'
@@ -31,9 +34,11 @@ export default function Content() {
             )}
             <hr className={`w-3/4 mt-5 border-gray-300`} />
             <DeveloperMsg />
-            <Skip message='Ir para o início da página' direction='top'
+            {showShortcut ? (
+                <Skip message='Ir para o início da página' direction='top'
                 scrollFunc={executeScrollTop}
             />
+            ): false}
         </div>
     )
 }
