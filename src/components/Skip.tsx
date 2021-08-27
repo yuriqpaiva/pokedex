@@ -1,13 +1,12 @@
 import React from 'react'
-import { useScrollData } from '../hook/useScrollData'
 
 interface SkipProps {
     message: string
-    direction: string
     scrollFunc: () => void
+    className: string
 }
 
-export default function Skip({ message, direction, scrollFunc}: SkipProps) {
+export default function Skip({ message, className, scrollFunc}: SkipProps) {
 
     // const handleClick = (e) => {
     //     e.stopPropagation()
@@ -19,13 +18,11 @@ export default function Skip({ message, direction, scrollFunc}: SkipProps) {
 
     return (
         <div className={`
-            mb-5        
+            mb-8        
         `}>
             <a
                 className={`
-                    text-red-500 font-semibold
-                    hover:text-red-400
-                    cursor-pointer
+                    ${className}
                 `}
                 onClick={scrollFunc}
                 >

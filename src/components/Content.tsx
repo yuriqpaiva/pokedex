@@ -11,17 +11,28 @@ export default function Content() {
     const { search, setShowAll, showAll, showShortcut } = usePokemonData()
     const { executeScrollTop, executeScrollBottom } = useScrollData()
 
+    const classShortcut = showShortcut
+        // if
+        ? `
+    text-green-500 font-semibold
+    hover:text-green-400
+    cursor-pointer 
+    sm:text-base text-xs 
+    `
+        // else
+        : `
+    text-gray-300  font-semibold
+    cursor-default 
+    `
+
     return (
         <div className={`
         flex flex-col items-center 
         mt-3 w-full sm:px-20  py-5 rounded-lg shadow-sm 
         bg-white`}>
-            {showShortcut ? (
-                <Skip message='Ir para o final da página' direction='bottom'
-                scrollFunc={executeScrollBottom}
+            <Skip message='Ir para o final da página'
+                scrollFunc={executeScrollBottom} className={classShortcut}
             />
-            ) : false}
-            
             <Input
                 title='Pesquisar:'
                 placeholder='Insira o nome do Pokémon'
@@ -34,11 +45,10 @@ export default function Content() {
             )}
             <hr className={`w-3/4 mt-5 border-gray-300`} />
             <DeveloperMsg />
-            {showShortcut ? (
-                <Skip message='Ir para o início da página' direction='top'
-                scrollFunc={executeScrollTop}
+
+            <Skip message='Ir para o início da página'
+                scrollFunc={executeScrollTop} className={classShortcut}
             />
-            ): false}
         </div>
     )
 }

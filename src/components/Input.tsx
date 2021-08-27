@@ -7,11 +7,11 @@ interface InputProps {
 export default function Input(props: InputProps) {
     return (
         <div className={`
-            flex items-baseline
+            flex items-baseline mb-5 
         `}>
             <label className={`
                 sm:text-base text-sm
-                text-gray-600
+                text-gray-600 font-semibold
             `}>
                 {props.title}
             </label>
@@ -20,7 +20,7 @@ export default function Input(props: InputProps) {
                 placeholder={props.placeholder}
                 className={`
                     border-2 rounded-sm
-                    mb-5 ml-1 
+                     ml-1 
                     sm:text-base text-sm
                     sm:w-60 w-48
                     hover:shadow-sm
