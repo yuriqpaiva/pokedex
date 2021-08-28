@@ -1,14 +1,11 @@
 import { usePokemonData } from "../hook/usePokemonData"
-import Input from "./Input"
-import PokeList from "./PokeList"
 import DeveloperMsg from '../components/DeveloperMsg'
 import Skip from "./Skip"
 import { useScrollData } from "../hook/useScrollData"
-import Button from "./Button"
 
-export default function Content() {
+export default function Content(props) {
 
-    const { search, setShowAll, showAll, showShortcut } = usePokemonData()
+    const { showShortcut } = usePokemonData()
     const { executeScrollTop, executeScrollBottom } = useScrollData()
 
     const classShortcut = showShortcut
@@ -33,20 +30,10 @@ export default function Content() {
             <Skip message='Ir para o final da página'
                 scrollFunc={executeScrollBottom} className={classShortcut}
             />
-            <Input
-                title='Pesquisar:'
-                placeholder='Insira o nome do Pokémon'
-                onChange={search}
-            />
-            <hr className={`w-3/4 mb-5 border-gray-300`} />
-            <PokeList />
-            {showAll ? false : (
-                <Button label='Mostrar Mais' onClick={setShowAll} />
-            )}
-            <hr className={`w-3/4 mt-5 border-gray-300`} />
+            {props.children}
             <DeveloperMsg />
 
-            <Skip message='Ir para o início da página'
+            <Skip message='Ir para o topo da página'
                 scrollFunc={executeScrollTop} className={classShortcut}
             />
         </div>

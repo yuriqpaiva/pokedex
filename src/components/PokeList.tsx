@@ -3,6 +3,7 @@ import NotFound from "./NotFound";
 import { usePokemonData } from "../hook/usePokemonData";
 import LoadingImg from "./LoadingImg";
 import Card from "./Card";
+import {  formatPokemonName } from "../functions/format";
 
 export default function PokeList() {
 
@@ -10,8 +11,7 @@ export default function PokeList() {
 
     function listaPokemons(pokemons) {
         return (pokemons.map((pokemon, index) => {
-            const formatedPokemon =
-                pokemon.name[0].toUpperCase() + pokemon.name.substr(1);
+            const formatedPokemon = formatPokemonName(pokemon.name)
             if (pokemons.length > 24 && !showAll && index < 24) {
                 return (
                     <div key={pokemon.number}>

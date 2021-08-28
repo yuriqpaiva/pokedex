@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react"
-import Pokemon from '../model/Pokemon'
+import PokemonModel from '../model/Pokemon'
 import { createContext } from "react";
 import { converterPara3Casas, converterDe3Casas } from "../functions/conversoes";
 
@@ -10,7 +10,8 @@ interface PokemonContext {
     loading: boolean
     showAll: boolean
     setShowAll: (value: boolean) => void
-    showShortcut: boolean
+    showShortcut: boolean,
+    setShowShortcut: (value: boolean) => void
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
@@ -19,7 +20,8 @@ export const PokeDataContext = createContext<PokemonContext>({
     loading: null,
     showAll: null,
     setShowAll: null,
-    showShortcut: null
+    showShortcut: null,
+    setShowShortcut: null
 })
 
 interface PokemonDataProps {
@@ -35,17 +37,18 @@ export default function PokemonData(props: PokemonDataProps) {
     const [showShortcut, setShowShortcut] = useState<boolean>(false)
 
     useEffect(() => {
-        async function carregarPokemons() {
+        async function loadPokemons() {
             const data = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151%27')
             const pokemonsApi = await data.json()
 
             const pokemonsApiArray =
-                await Promise.all(pokemonsApi.results.map(async (pokemon, index) => {
-                    const numPokemon = converterPara3Casas(index + 1)
+                await Promise.all(pokemonsApi.results.map(async (pokemon) => {
+                    // const numPokemon = converterPara3Casas(index + 1)
                     const dataImg = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
                     const pokemonData = await dataImg.json()
+                    const numPokemon = converterPara3Casas(pokemonData.id)
                     const pokemonSpriteUrl = await pokemonData.sprites.other['official-artwork'].front_default
-                    return new Pokemon(
+                    return new PokemonModel(
                         numPokemon,
                         pokemon.name,
                         pokemonSpriteUrl
@@ -58,7 +61,7 @@ export default function PokemonData(props: PokemonDataProps) {
             setPokemons(pokemonsApiArray)
             setAllPokemons(pokemonsApiArray)
         }
-        carregarPokemons()
+        loadPokemons()
     }, [])
 
     useEffect(() => {
@@ -72,7 +75,7 @@ export default function PokemonData(props: PokemonDataProps) {
 
     function search(insertValue: string) {
         let insert = insertValue.toLowerCase()
-        const searchArray: [] = allPokemons.filter((pokemon: Pokemon) => {
+        const searchArray: [] = allPokemons.filter((pokemon: PokemonModel) => {
             return pokemon.name.indexOf(insert) > -1
         })
 
@@ -89,7 +92,8 @@ export default function PokemonData(props: PokemonDataProps) {
             loading,
             showAll,
             setShowAll,
-            showShortcut
+            showShortcut,
+            setShowShortcut
         }}>
             {props.children}
         </PokeDataContext.Provider>

@@ -1,4 +1,4 @@
-export default class Pokemon {
+export default class PokemonModel {
     #number: string
     #name: string
     #url: string
@@ -23,5 +23,11 @@ export default class Pokemon {
 
     toObject() {
         return {name: this.name, url: this.url}
+    }
+
+    static startClass() {
+        return new PokemonModel(
+            '', '', ''
+        )
     }
 }
