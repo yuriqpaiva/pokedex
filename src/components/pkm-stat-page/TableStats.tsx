@@ -7,12 +7,14 @@ import { formatName } from "../../functions/format"
 export default function TableStats(props) {
 
     const clasTHead = `
-    bg-red-500 border text-center px-10 py-5 
+    bg-red-500 border text-center 
+    sm:px-10 sm:py-5 px-5 py-3
     text-white rounded-t-lg border-2 border-gray-400
     font-semibold border-b-0
     `
     const classTBody = `
-    border px-10 py-5
+    border
+    sm:px-10 sm:py-5 px-4 py-2
     border-gray-400
     `
 
