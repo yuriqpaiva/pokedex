@@ -3,8 +3,8 @@ export default class PokemonModel {
     #name: string
     #url: string
 
-    constructor(id, name: string, url: string) {
-        this.#number = id
+    constructor(number, name: string, url: string) {
+        this.#number = number
         this.#name = name
         this.#url = url
     }

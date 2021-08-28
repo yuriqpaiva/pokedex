@@ -19,7 +19,8 @@ export default function Home() {
         <Line className='mb-5'/>
         <PokeList />
         {showAll ? false : (
-          <Button label='Mostrar Mais' className='mt-5' onClick={setShowAll} />
+          <Button label='Mostrar Mais' 
+          className='mt-5' onClick={setShowAll} />
         )}
         <Line className='mt-5'/>
       </Layout>

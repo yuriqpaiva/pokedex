@@ -1,3 +1,3 @@
-export function formatPokemonName(pokemon: string) {
+export function formatName(pokemon: string) {
     return pokemon[0].toUpperCase() + pokemon.substr(1);
 }
