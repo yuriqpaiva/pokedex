@@ -69,7 +69,7 @@ export default function PokemonData(props: PokemonDataProps) {
 
     useEffect(() => {
         handleShortcut()
-    }, [showAll, pokemons, showShortcut])
+    }, [showAll, pokemons, showShortcut, loading])
 
     function handleShortcut() {
         const page = document.querySelector("body")
@@ -95,8 +95,8 @@ export default function PokemonData(props: PokemonDataProps) {
     function resetPageState() {
         setPokemons(allPokemons)
         if (showAll) {
-            setShowShortcut(true)
             setShowAll(false)
+            setShowShortcut(true)
         }
     }
 
