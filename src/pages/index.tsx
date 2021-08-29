@@ -10,7 +10,7 @@ export default function Home() {
   const { search, setShowAll, showAll } = usePokemonData()
 
   return (
-      <Layout>
+      <Layout skip>
         <Input
           title='Pesquisar:'
           placeholder='Insira o nome do Pokémon'

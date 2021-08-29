@@ -12,7 +12,7 @@ interface PokemonContext {
     setShowAll: (value: boolean) => void
     showShortcut: boolean,
     setShowShortcut: (value: boolean) => void,
-    resetPageState: () => void
+    handleShortcut: () => void
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
@@ -23,7 +23,7 @@ export const PokeDataContext = createContext<PokemonContext>({
     setShowAll: null,
     showShortcut: null,
     setShowShortcut: null,
-    resetPageState: null
+    handleShortcut: null
 })
 
 interface PokemonDataProps {
@@ -37,7 +37,6 @@ export default function PokemonData(props: PokemonDataProps) {
     const [loading, setLoading] = useState<boolean>(true)
     const [showAll, setShowAll] = useState<boolean>(true)
     const [showShortcut, setShowShortcut] = useState<boolean>(false)
-    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         async function loadPokemons() {
@@ -64,17 +63,22 @@ export default function PokemonData(props: PokemonDataProps) {
             setPokemons(pokemonsApiArray)
             setAllPokemons(pokemonsApiArray)
         }
+        
         loadPokemons()
     }, [])
 
     useEffect(() => {
+        handleShortcut()
+    }, [showAll])
+
+    function handleShortcut() {
         const page = document.querySelector("body")
         if (page.scrollHeight > 1001) {
             setShowShortcut(true)
         } else {
             setShowShortcut(false)
         }
-    }, [showAll])
+    }
 
     function search(insertValue) {
         let insert = insertValue.toLowerCase()
@@ -88,9 +92,11 @@ export default function PokemonData(props: PokemonDataProps) {
         setPokemons(searchArray)
     }
 
-    function resetPageState() {
-        setPokemons(allPokemons)
-    }
+    // function resetPageState() {
+    //     setPokemons(allPokemons)
+    //     setShowShortcut(true)
+    //     setShowAll(true)
+    // }
 
     return (
         <PokeDataContext.Provider value={{
@@ -101,7 +107,7 @@ export default function PokemonData(props: PokemonDataProps) {
             setShowAll,
             showShortcut,
             setShowShortcut,
-            resetPageState
+            handleShortcut
         }}>
             {props.children}
         </PokeDataContext.Provider>

@@ -14,7 +14,8 @@ import PokemonStatsModel from "../../model/PokemonStatsModel";
 
 export default function Pokemon() {
 
-    const { setShowShortcut, resetPageState } = usePokemonData()
+    const { setShowShortcut, setShowAll, handleShortcut} 
+    = usePokemonData()
 
     const router = useRouter()
     const pokemonPathName = `${router.query.pokemon}`
@@ -48,14 +49,14 @@ export default function Pokemon() {
                     pokemonAbilite
                 )
             }
-
             loadPokemon().then((pkm) => setPokemon(pkm))
         }
-    }, [pokemon, pokemonName, pokemonPathName, router, setShowShortcut])
+        // setShowAll(false)
+        // handleShortcut()
+    }, [pokemonName, pokemonPathName, router.asPath, router.route])
 
     function goToMenu() {
         router.push('/')
-        resetPageState()
     }
 
     return (

@@ -5,6 +5,7 @@ import Header from "./Header";
 
 interface LayoutProps {
     children: any
+    skip?: boolean
 }
 
 export default function Layout(props: LayoutProps) {
@@ -26,7 +27,7 @@ export default function Layout(props: LayoutProps) {
                 title='Pokédex'
                 subtitle='Pesquisa Avançada de Pokémons'
             />
-            <Content>
+            <Content skip={props.skip}>
                 {props.children}
             </Content>
         </div>

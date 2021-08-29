@@ -27,15 +27,20 @@ export default function Content(props) {
         flex flex-col items-center 
         mt-3 w-full sm:px-20  py-5 rounded-lg shadow-md
         bg-white`}>
-            <Skip message='Ir para o final da página'
+            {props.skip ? (
+                <Skip message='Ir para o final da página'
                 scrollFunc={executeScrollBottom} className={classShortcut}
             />
+            ): false}
+            
             {props.children}
             <DeveloperMsg />
 
+            {props.skip ? (
             <Skip message='Ir para o topo da página'
                 scrollFunc={executeScrollTop} className={classShortcut}
             />
+            ): false}
         </div>
     )
 }
