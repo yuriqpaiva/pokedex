@@ -1,7 +1,7 @@
 interface BaseInfoProps {
     pokemon: {
-        number: string,
-        name: string
+        number?: string,
+        name?: string
     }
 }
 

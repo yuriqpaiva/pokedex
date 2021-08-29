@@ -11,6 +11,7 @@ import { usePokemonData } from "../../hook/usePokemonData";
 import TableStats from "../../components/pkm-stat-page/TableStats";
 import BaseInfo from "../../components/pkm-stat-page/BaseInfo";
 import PokemonStatsModel from "../../model/PokemonStatsModel";
+import LoadingImg from "../../components/LoadingImg";
 
 export default function Pokemon() {
 
@@ -49,6 +50,8 @@ export default function Pokemon() {
                 )
             }
             loadPokemon().then((pkm) => setPokemon(pkm))
+            const page = document.querySelector("body")
+            console.log(page.scrollHeight)
         }
     }, [pokemonName, pokemonPathName, router.asPath, router.route])
 
@@ -87,7 +90,9 @@ export default function Pokemon() {
                     </div>
                     <Line className='mt-5' />
                 </>
-            ) : false}
+            ) : (
+                <div className={'h-screen'}/>
+            )}
         </Layout>
     )
 }

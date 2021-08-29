@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import NotFound from "./NotFound";
-import { usePokemonData } from "../hook/usePokemonData";
-import LoadingImg from "./LoadingImg";
+import NotFound from "../NotFound";
+import { usePokemonData } from "../../hook/usePokemonData";
+import LoadingImg from "../LoadingImg";
 import Card from "./Card";
-import {  formatName } from "../functions/format";
+import {  formatName } from "../../functions/format";
 
 export default function PokeList() {
 
