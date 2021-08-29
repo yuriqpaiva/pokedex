@@ -14,7 +14,7 @@ import PokemonStatsModel from "../../model/PokemonStatsModel";
 
 export default function Pokemon() {
 
-    const { setShowShortcut } = usePokemonData()
+    const { setShowShortcut, resetPageState } = usePokemonData()
 
     const router = useRouter()
     const pokemonPathName = `${router.query.pokemon}`
@@ -55,6 +55,7 @@ export default function Pokemon() {
 
     function goToMenu() {
         router.push('/')
+        resetPageState()
     }
 
     return (

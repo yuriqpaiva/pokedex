@@ -1,10 +1,13 @@
+import { usePokemonData } from "../hook/usePokemonData"
+
 interface InputProps {
     title: string
     placeholder: string
-    onChange: (value: string) => void
+    onChange: (value: {}) => void
 }
 
 export default function Input(props: InputProps) {
+
     return (
         <div className={`
             flex items-baseline mb-5 
@@ -16,6 +19,7 @@ export default function Input(props: InputProps) {
                 {props.title}
             </label>
             <input
+                id='txt_input'
                 type="text"
                 placeholder={props.placeholder}
                 className={`

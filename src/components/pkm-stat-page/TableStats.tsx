@@ -1,10 +1,15 @@
-// interface TableStatsProps {
-//     pokemon:
-// }
+interface TableStatsProps {
+    pokemon: {
+        type: string,
+        height: string,
+        weight: string
+        abilitie: string
+    }
+}
 
 import { formatName } from "../../functions/format"
 
-export default function TableStats(props) {
+export default function TableStats({pokemon}: TableStatsProps) {
 
     const clasTHead = `
     bg-red-500 border text-center 
@@ -31,27 +36,27 @@ export default function TableStats(props) {
                     <tr>
                         <td className={classTBody} >Tipo</td>
                         <td className={classTBody}>
-                            {formatName(props.pokemon.type)}
+                            {formatName(pokemon.type)}
                         </td>
 
                     </tr>
                     <tr>
                         <td className={classTBody}>Altura</td>
                         <td className={classTBody}>
-                            {`${props.pokemon.height} m`}
+                            {`${pokemon.height} m`}
                         </td>
 
                     </tr>
                     <tr>
                         <td className={classTBody}>Peso</td>
                         <td className={classTBody}>
-                            {`${props.pokemon.weight} kg`}
+                            {`${pokemon.weight} kg`}
                         </td>
                     </tr>
                     <tr>
                         <td className={classTBody}>Habilidade</td>
                         <td className={classTBody}>
-                            {`${formatName(props.pokemon.abilitie)}`}
+                            {`${formatName(pokemon.abilitie)}`}
                         </td>
                     </tr>
                 </tbody>
