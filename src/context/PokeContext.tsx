@@ -12,7 +12,7 @@ interface PokemonContext {
     setShowAll: (value: boolean) => void
     showShortcut: boolean,
     setShowShortcut: (value: boolean) => void,
-    handleShortcut: () => void
+    resetPageState: () => void
 }
 
 export const PokeDataContext = createContext<PokemonContext>({
@@ -23,7 +23,7 @@ export const PokeDataContext = createContext<PokemonContext>({
     setShowAll: null,
     showShortcut: null,
     setShowShortcut: null,
-    handleShortcut: null
+    resetPageState: null
 })
 
 interface PokemonDataProps {
@@ -63,13 +63,13 @@ export default function PokemonData(props: PokemonDataProps) {
             setPokemons(pokemonsApiArray)
             setAllPokemons(pokemonsApiArray)
         }
-        
+
         loadPokemons()
     }, [])
 
     useEffect(() => {
         handleShortcut()
-    }, [showAll])
+    }, [showAll, pokemons, showShortcut])
 
     function handleShortcut() {
         const page = document.querySelector("body")
@@ -92,11 +92,13 @@ export default function PokemonData(props: PokemonDataProps) {
         setPokemons(searchArray)
     }
 
-    // function resetPageState() {
-    //     setPokemons(allPokemons)
-    //     setShowShortcut(true)
-    //     setShowAll(true)
-    // }
+    function resetPageState() {
+        setPokemons(allPokemons)
+        if (showAll) {
+            setShowShortcut(true)
+            setShowAll(false)
+        }
+    }
 
     return (
         <PokeDataContext.Provider value={{
@@ -107,7 +109,7 @@ export default function PokemonData(props: PokemonDataProps) {
             setShowAll,
             showShortcut,
             setShowShortcut,
-            handleShortcut
+            resetPageState
         }}>
             {props.children}
         </PokeDataContext.Provider>
