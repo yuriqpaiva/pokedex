@@ -16,7 +16,8 @@ npm run dev
 
 # Explicando o projeto
 
-Este projeto busca fornecer ao usuário uma lista completa de Pokémons da região de Kanto, ao clicar nos Pokémons é possível obter algumas informações sobre eles. Foi utilizada uma integração com a PokeAPI
+Este projeto busca fornecer ao usuário uma lista completa de Pokémons da região de Kanto, ao clicar nos Pokémons é possível obter algumas informações sobre eles. 
+Foi utilizada uma integração com a PokeAPI.
 
 ![Imagem-aplicacao1](./public/images/img-app1.png)
 
