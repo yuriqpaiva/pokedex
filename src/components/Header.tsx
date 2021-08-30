@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import pokeball from '../../public/images/icone.svg'
-import { useScrollData } from '../hook/useScrollData'
 
 interface HeaderProps {
     title: string

@@ -1,5 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import Image from 'next/image'
+
 interface CardProps {
     pokemon: any
     formatedPokemon: string
@@ -13,8 +14,8 @@ export default function Card({ pokemon, formatedPokemon }: CardProps) {
         <li onClick={() => {router.push(`https://pokedex-liard-beta.vercel.app/pokemon/${pokemon.name}`)}}
             className={`
                     sm:m-2 sm:my-2 my-2 m-2 xl:m-8 bg-gray-100 sm:p-4  rounded-lg border-2
-                    border-gray-300 shadow-sm hover:shadow-2xl 
-                    hover:scale-75 cursor-pointer focus:shadow-none   
+                    border-gray-300 shadow-sm hover:shadow-xl 
+                    cursor-pointer focus:shadow-none   
                     focus:outline-none hover:border-red-400 
                     focus:border-red-400 
                     `}

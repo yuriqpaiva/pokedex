@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
-import PokemonData from '../context/PokeContext'
-import ScrollData from '../context/ScrollContext'
+import PokemonData from '../contexts/PokeContext'
+import ScrollData from '../contexts/ScrollContext'
 
 function MyApp({ Component, pageProps }) {
   return (

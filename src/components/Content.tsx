@@ -1,7 +1,7 @@
-import { usePokemonData } from "../hook/usePokemonData"
+import { usePokemonData } from "../hooks/usePokemonData"
 import DeveloperMsg from '../components/DeveloperMsg'
 import Skip from "./Skip"
-import { useScrollData } from "../hook/useScrollData"
+import { useScrollData } from "../hooks/useScrollData"
 
 export default function Content(props) {
 

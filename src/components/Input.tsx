@@ -1,5 +1,3 @@
-import { usePokemonData } from "../hook/usePokemonData"
-
 interface InputProps {
     title: string
     placeholder: string

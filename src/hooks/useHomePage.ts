@@ -1,37 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react"
+import { converterPara3Casas } from "../functions/convert"
 import PokemonModel from '../model/Pokemon'
-import { createContext } from "react";
-import { converterPara3Casas, converterDe3Casas } from "../functions/conversoes";
 
-interface PokemonContext {
-    pokemons: [any]
-    search: (name: string) => void
-    loading: boolean
-    showAll: boolean
-    setShowAll: (value: boolean) => void
-    showShortcut: boolean,
-    setShowShortcut: (value: boolean) => void,
-    resetPageState: () => void
-}
-
-export const PokeDataContext = createContext<PokemonContext>({
-    pokemons: null,
-    search: null,
-    loading: null,
-    showAll: null,
-    setShowAll: null,
-    showShortcut: null,
-    setShowShortcut: null,
-    resetPageState: null
-})
-
-interface PokemonDataProps {
-    children: any
-}
-
-export default function PokemonData(props: PokemonDataProps) {
-
+export default function useHomePage() {
     const [pokemons, setPokemons] = useState<any>([])
     const [allPokemons, setAllPokemons] = useState<any>([])
     const [loading, setLoading] = useState<boolean>(true)
@@ -82,7 +53,8 @@ export default function PokemonData(props: PokemonDataProps) {
 
     function search(insertValue) {
         let insert = insertValue.toLowerCase()
-        const searchArray: [] = allPokemons.filter((pokemon: PokemonModel) => {
+        const searchArray: [] 
+        = allPokemons.filter((pokemon: PokemonModel) => {
             return pokemon.name.indexOf(insert) > -1
         })
 
@@ -99,19 +71,14 @@ export default function PokemonData(props: PokemonDataProps) {
             setShowShortcut(true)
         }
     }
-
-    return (
-        <PokeDataContext.Provider value={{
-            pokemons,
-            search,
-            loading,
-            showAll,
-            setShowAll,
-            showShortcut,
-            setShowShortcut,
-            resetPageState
-        }}>
-            {props.children}
-        </PokeDataContext.Provider>
-    )
+    return {
+        pokemons,
+        search,
+        loading,
+        showAll,
+        setShowAll,
+        showShortcut,
+        setShowShortcut,
+        resetPageState
+    }
 }

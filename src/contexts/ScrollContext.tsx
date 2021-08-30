@@ -1,18 +1,13 @@
 import { createContext, useRef } from "react";
 
 interface ScrollItf {
-    refTop: any
-    refBottom: any
-    executeScrollBottom: () => void
-    executeScrollTop: () => void
+    refTop?: any
+    refBottom?: any
+    executeScrollBottom?: () => void
+    executeScrollTop?: () => void
 }
 
-export const ScrollContext = createContext<ScrollItf>({
-    refTop: null,
-    refBottom: null,
-    executeScrollBottom: null,
-    executeScrollTop: null
-})
+export const ScrollContext = createContext<ScrollItf>({})
 
 interface ScrollDataProps {
     children: any

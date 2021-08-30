@@ -1,4 +1,4 @@
-import { useScrollData } from "../hook/useScrollData"
+import { useScrollData } from "../hooks/useScrollData"
 
 export default function DeveloperMsg() {
 

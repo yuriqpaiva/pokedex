@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import { pikachuImg } from "../../public/images/pikachuImg";
 import Image from 'next/image'
 
 export default function NotFound() {

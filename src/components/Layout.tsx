@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useScrollData } from "../hook/useScrollData";
+import { useScrollData } from "../hooks/useScrollData";
 import Content from "./Content";
 import Header from "./Header";
 

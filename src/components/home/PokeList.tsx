@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import NotFound from "../NotFound";
-import { usePokemonData } from "../../hook/usePokemonData";
+import { usePokemonData } from "../../hooks/usePokemonData";
 import LoadingImg from "../LoadingImg";
 import Card from "./Card";
 import {  formatName } from "../../functions/format";
