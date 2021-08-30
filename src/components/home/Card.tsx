@@ -10,8 +10,21 @@ export default function Card({ pokemon, formatedPokemon }: CardProps) {
 
     const router = useRouter()
 
+    function goToStatsPage(e = null) {
+        const push = () => {
+            router.push
+            (`https://pokedex-liard-beta.vercel.app/pokemon/${pokemon.name}`);
+        }
+        if (e && e.code === 'Enter') {
+            push()
+        } else if (!e) {
+            push()
+        }
+    }
+
     return (
-        <li onClick={() => {router.push(`https://pokedex-liard-beta.vercel.app/pokemon/${pokemon.name}`)}}
+        <li onClick={() => goToStatsPage()}
+            onKeyUp={(e) => goToStatsPage(e)}
             className={`
                     sm:m-2 sm:my-2 my-2 m-2 xl:m-8 bg-gray-100 sm:p-4  rounded-lg border-2
                     border-gray-300 shadow-sm hover:shadow-xl 
