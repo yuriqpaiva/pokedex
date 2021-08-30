@@ -5,7 +5,7 @@ export default function ListMsg() {
             sm:text-base text-sm
             text-gray-700
         `}>
-            Selecione o Pokémon que deseja obter informações
+            Selecione um Pokémon
         </p>
     )
 }
