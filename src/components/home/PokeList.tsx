@@ -3,7 +3,8 @@ import NotFound from "../NotFound";
 import { usePokemonData } from "../../hooks/usePokemonData";
 import LoadingImg from "../LoadingImg";
 import Card from "./Card";
-import {  formatName } from "../../functions/format";
+import { formatName } from "../../functions/format";
+import ListMsg from "./ListMsg";
 
 export default function PokeList() {
 
@@ -35,21 +36,26 @@ export default function PokeList() {
     }
 
     return (
-        <ul>
-            <ul className={`
+        <>
+            {loading ? false : (
+                <ListMsg />
+            )}
+            <ul>
+                <ul className={`
                 flex flex-wrap justify-center 
                 text-center sm:text-base text-sm 
                 `}>
-                {pokemons.length > 0 && !loading ? (
-                    listaPokemons(pokemons)
-                ) : (
-                    loading ? (
-                        <LoadingImg />
+                    {pokemons.length > 0 && !loading ? (
+                        listaPokemons(pokemons)
                     ) : (
-                        <NotFound />
-                    )
-                )}
+                        loading ? (
+                            <LoadingImg />
+                        ) : (
+                            <NotFound />
+                        )
+                    )}
+                </ul>
             </ul>
-        </ul>
+        </>
     )
 }
