@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function LoadingImg() {
     return (
         <div>
-            <h3 className='text-xl'>Obtendo dados da Pokedéx...</h3>
+            <h3 className='sm:text-xl text-base'>Obtendo dados da Pokedéx...</h3>
             <div className={`
                     rounded-xl
                     w-80 h-64

@@ -15,7 +15,7 @@ export default function Layout(props: LayoutProps) {
     return (
         <div className={`
     flex flex-col items-center min-h-screen max-h-full p-3
-    bg-gradient-to-b from-red-400 to-red-500
+    bg-gradient-to-b from-red-400 to-red-500 text-center
     `}
       id='inicio' ref={refTop}>
             <Head>

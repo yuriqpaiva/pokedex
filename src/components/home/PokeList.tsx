@@ -37,24 +37,20 @@ export default function PokeList() {
 
     return (
         <>
-            {loading ? false : (
-                <ListMsg />
-            )}
-            <ul>
-                <ul className={`
+        <ListMsg />
+            <ul className={`
                 flex flex-wrap justify-center 
                 text-center sm:text-base text-sm 
                 `}>
-                    {pokemons.length > 0 && !loading ? (
-                        listaPokemons(pokemons)
+                {pokemons.length > 0 && !loading ? (
+                    listaPokemons(pokemons)
+                ) : (
+                    loading ? (
+                        <LoadingImg />
                     ) : (
-                        loading ? (
-                            <LoadingImg />
-                        ) : (
-                            <NotFound />
-                        )
-                    )}
-                </ul>
+                        <NotFound />
+                    )
+                )}
             </ul>
         </>
     )
