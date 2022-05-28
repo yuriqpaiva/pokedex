@@ -53,3 +53,6 @@ Web application - Pokedex
 
 <br/>
 
+## © License
+
+MIT License © Yuri Paiva
