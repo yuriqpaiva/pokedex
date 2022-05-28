@@ -1,25 +1,55 @@
-# Pokedéx
+#  Pokedex &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg) ![framework](https://img.shields.io/badge/framework-nextjs-black) ![language](https://img.shields.io/badge/language-typescript-blue) ![style](https://img.shields.io/badge/style-tailwindcss-ff69b4)
 
-App de pesquisa de Pokémons ou "Pokedéx" feito com NextJS e TailWindCSS
+<div align="center">
+  <img align="center" src="./public/app.png" />
+</div>
 
-# Como funciona?
+<br/>
 
-Para instalar as dependências do Node utilize o comando no terminal da pasta:
+
+## 💡 Introduction
+Web application - Pokedex
+1. Navigate through 151 pokemons
+2. Search for pokemons
+3. Choose one pokemon to get informations about
+
+<br/>
+
+## 🖥 Pre-requisites:
+
+- NodeJS
+
+<br/>
+
+## 💾 How to Install Dependencies?
+
+### Using NPM:
+
 ```
-npm i
+  npm install
 ```
 
-Para rodar a aplicação React localmente, em modo de desenvolvimento, utilize o seguinte comando no terminal da pasta:
+### Using Yarn:
+
 ```
-npm run dev
+  yarn
 ```
 
-# Explicando o projeto
+<br/>
 
-Este projeto busca fornecer ao usuário uma lista completa de Pokémons da região de Kanto, ao clicar nos Pokémons é possível obter algumas informações sobre eles. 
-Foi utilizada uma integração com a PokeAPI.
+## 🚀 How to Run it?
 
-![Imagem-aplicacao1](./public/images/img-app1.png)
+### Using NPM:
 
+```
+  npm start
+```
 
-![Imagem-aplicacao2](./public/images/img-app2.png)
+### Using Yarn:
+
+```
+  yarn start
+```
+
+<br/>
+
